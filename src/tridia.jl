@@ -22,4 +22,4 @@ function tridia(x :: AbstractVector{Y}, α::Float64=2.0, β::Float64=1.0, γ::Fl
   γ * (x[1] * δ - 1.0)^2 + sum(i * (-β * x[i-1] + α * x[i])^2 for i=2:n)
 end
 start_tridia(n :: Int) = start_ones(n)
-tridia_ADNLPModel(n :: Int=100) = RADNLPModel(tridia, start_tridia(n), name="tridia "*string(n) * " variables")
+tridia_ADNLPModel(n :: Int=10000) = RADNLPModel(tridia, start_tridia(n), name="tridia "*string(n) * " variables")

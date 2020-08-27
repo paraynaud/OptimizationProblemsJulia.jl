@@ -34,5 +34,5 @@ function cragglvy(x :: AbstractVector{Y}) where Y <: Number
         (tan(x[2*i+1] - x[2*i+2]) + x[2*i+1] - x[2*i+2])^4 +
         x[2*i-1]^8 + (x[2*i+2] - 1)^2 for i = 1:div(n,2)-1)
 end
-start_cragglvy(n :: Int) = begin x0 = start_ones(n); x0[1] = 1; return x0 end
+start_cragglvy(n :: Int) = begin x0 = (xᵢ -> 2*xᵢ).(start_ones(n)); x0[1] = 1; return x0 end
 cragglvy_ADNLPModel(n :: Int=100) = RADNLPModel(cragglvy, start_cragglvy(n), name="cragglvy "*string(n) * " variables")

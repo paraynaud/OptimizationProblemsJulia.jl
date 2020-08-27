@@ -17,4 +17,4 @@ function quartc(x :: AbstractVector{Y}) where Y <: Number
   sum((x[i] - i)^4 for i=1:n)
 end
 start_quartc(n :: Int) =  (x -> 2 * x).(start_ones(n))
-quartc_ADNLPModel(n :: Int=100) = RADNLPModel(quartc, start_quartc(n), name="quartc "*string(n) * " variables")
+quartc_ADNLPModel(n :: Int=10000) = RADNLPModel(quartc, start_quartc(n), name="quartc "*string(n) * " variables")

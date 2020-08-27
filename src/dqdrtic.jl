@@ -17,4 +17,4 @@ function dqdrtic(x :: AbstractVector{Y}) where Y <: Number
   sum(x[i]^2 + 100 * (x[i+1]^2 + x[i+2]^2) for i=1:n-2)
 end
 start_dqdrtic(n :: Int) =  (x -> 3 * x).(start_ones(n))
-dqdrtic_ADNLPModel(n :: Int=100) = RADNLPModel(dqdrtic, start_dqdrtic(n), name="dqdrtic "*string(n) * " variables")
+dqdrtic_ADNLPModel(n :: Int=5000) = RADNLPModel(dqdrtic, start_dqdrtic(n), name="dqdrtic "*string(n) * " variables")

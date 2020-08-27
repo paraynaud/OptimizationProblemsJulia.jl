@@ -60,4 +60,4 @@ function brybnd(x :: AbstractVector{Y}; ml :: Int=5, mu :: Int=1) where Y <: Num
   )
 end
 start_brybnd(n :: Int) = (x -> -1 * x).(ones(n))
-brybnd_ADNLPModel(n :: Int=100) = RADNLPModel(brybnd, start_bdqrtic(n), name="brybnd "*string(n) * " variables")
+brybnd_ADNLPModel(n :: Int=100) = RADNLPModel(brybnd, start_brybnd(n), name="brybnd "*string(n) * " variables")

@@ -38,7 +38,7 @@ function curly(x :: AbstractVector{Y}; b :: Int=10) where Y <: Number
   sum(f[i] * (f[i] * (f[i]^2 - 20) - 0.1) for i = 1:n)
 end
 start_curly(n :: Int) = [1.0e-4 * i /(n+1) for i = 1:n]
-curly_ADNLPModel(n :: Int=100) = RADNLPModel(curly, start_cragglvy(n), name="curly "*string(n) * " variables")
-curly10_ADNLPModel(n :: Int=100) = RADNLPModel(curly10, start_cragglvy(n), name="curly10 "*string(n) * " variables")
-curly20_ADNLPModel(n :: Int=100) = RADNLPModel(curly20, start_cragglvy(n), name="curly20 "*string(n) * " variables")
-curly30_ADNLPModel(n :: Int=100) = RADNLPModel(curly30, start_cragglvy(n), name="curly30 "*string(n) * " variables")
+curly_ADNLPModel(n :: Int=100) = RADNLPModel(curly, start_curly(n), name="curly "*string(n) * " variables")
+curly10_ADNLPModel(n :: Int=100) = RADNLPModel(curly10, start_curly(n), name="curly10 "*string(n) * " variables")
+curly20_ADNLPModel(n :: Int=100) = RADNLPModel(curly20, start_curly(n), name="curly20 "*string(n) * " variables")
+curly30_ADNLPModel(n :: Int=100) = RADNLPModel(curly30, start_curly(n), name="curly30 "*string(n) * " variables")
